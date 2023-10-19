@@ -20,12 +20,17 @@ Dependencias necesarias:
 ```
 npm install class-validator cors dotenv express morgan mysql ejs typeorm typeorm-naming-strategies typescript
 ```
+ npm install middleware 
+ npm install passport-jwt 
+ npm install passport-local
 
 Dependencias de desarrollo necesarias:
 
 ```
 npm install -D @types/cors @types/express @types/morgan concurrently nodemon
 ```
+npm install -D @types/passport
+
 # Comandos para docker compose
 docker-compose up
 
