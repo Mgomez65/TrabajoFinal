@@ -7,7 +7,7 @@ export class purchaseRouter extends BaseRouter<PurchaseController>{
         super(PurchaseController);
     }
 routes(): void {
-    this.router.get("/purchases",(req,res) => this.controller.getPurchases);
+    this.router.get("/purchases",(req,res) => this.controller.getPurchases(req,res));
     this.router.get("/purchases", (req, res) => this.controller.getPurchaseById(req, res) );
     this.router.post("/createPurchases",(req,res)=>this.controller.createPurchase(req,res) );
     this.router.post("/updatePurchase",(req,res ) => this.controller.updatePurchase(req,res));
