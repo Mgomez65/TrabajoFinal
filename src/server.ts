@@ -43,11 +43,16 @@ class ServerBootstrap extends ConfigServer {
       });
   }
 
+  
+
+  
   public listen() {
     this.app.listen(this.port, () => {
       console.log("Server listening on port " + this.port);
     });
   }
+  
 }
+
 
 new ServerBootstrap();

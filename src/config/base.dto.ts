@@ -13,3 +13,4 @@ export class BaseDTO {
   @IsOptional()
   updatedAt!: Date;
 }
+export class categorydto extends BaseDTO
