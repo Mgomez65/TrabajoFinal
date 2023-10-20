@@ -25,7 +25,7 @@ export class categoryController{
       let { id } = req.query;
       id = id?.toString() || "";
       try {
-          const data = await this.categoryService.getCategoryById();
+          const data = await this.categoryService.findAllCategoryById(id);
           if (!data) {
           return this.httpResponse.NotFound(res, "No existe dato");
           }

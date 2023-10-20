@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { BaseEntity } from "../../config/base.entity";
-import { CustomerEntity } from "../../customer/customer.entity";
-import { CategoryEntity } from "../../category/category.entity";
+import { CustomerEntity } from "../../../../crud-typescript/src/customer/customer.entity";
+import { CategoryEntity } from "../../../../crud-typescript/src/category/category.entity";
 import { PurchaseProductEntity } from "../../purchase/entities/purchases-products.entity";
 
 @Entity({ name: "product" })

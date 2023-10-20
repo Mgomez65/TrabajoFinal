@@ -1,44 +1,44 @@
 import { Request, Response } from "express";
-import { HttpResponse } from "../../shared/response/http.response";
+import { CustomerService } from "../services/customer.services";
+import { HttpResponse } from "../../../shared/response/http.response";
 import { DeleteResult, UpdateResult } from "typeorm";
-import { purchaseService } from "../services/purchase.service";
 
-export class PurchaseController {
+export class CustomerController {
     constructor(
-        private readonly purchaseService: purchaseService = new purchaseService(),
+        private readonly CustomerService: CustomerService = new CustomerService(),
         private readonly httpResponse: HttpResponse = new HttpResponse()
     ) {}
 
-    async getPurchases(req: Request, res: Response) {
+    async getCustomer(req: Request, res: Response) {
         try {
-            const data = await this.purchaseService.findAllPurchase();
+            const data = await this.CustomerService.findAllCustomer();
             if (data.length === 0) {
                 return this.httpResponse.NotFound(res, "No existe dato");
         }
-        res.render("purchase", { data });
+        res.render("customer", { data });
         } catch (e) {
         console.error(e);
         return this.httpResponse.Error(res, e);
         }
     }
 
-    async getPurchaseById(req: Request, res: Response) {
+    async getCustomerByID(req: Request, res: Response) {
         let { id } = req.query;
         id = id?.toString() || "";
         try {
-            const data = await this.purchaseService.findPurchaseByid(id);
+            const data = await this.CustomerService.findCustomerById(id);
             if (!data) {
             return this.httpResponse.NotFound(res, "No existe dato");
             }
-            return res.render("edit", {purchase: data,});
+            return res.render("edit", {customer: data,});
         } catch (e) {
             console.error(e);
             return this.httpResponse.Error(res, e);}
     }
 
-    async createPurchase(req: Request, res: Response) {
+    async createCustomer(req: Request, res: Response) {
         try {
-            const data = await this.purchaseService.createPurchase(req.body);
+            const data = await this.CustomerService.createCustomer(req.body);
             res.render("index");
         } catch (e) {
             console.error(e);
@@ -46,10 +46,10 @@ export class PurchaseController {
         }
     }
 
-    async updatePurchase(req: Request, res: Response) {
+    async updateCustomer(req: Request, res: Response) {
         const { id } = req.body;
         try {
-            const data: UpdateResult = await this.purchaseService.updatePurchase(
+            const data: UpdateResult = await this.CustomerService.updateCustomer(
             id,
             req.body);
             if (!data.affected) {
@@ -62,10 +62,10 @@ export class PurchaseController {
         }
     }
 
-    async deletePurchase(req: Request, res: Response) {
+    async deleteCustomer(req: Request, res: Response) {
         const { id } = req.body;
         try {
-        const data: DeleteResult = await this.purchaseService.deletePurchase(id);
+        const data: DeleteResult = await this.CustomerService.deleteCustomer(id);
         if (!data.affected) {
             return this.httpResponse.NotFound(res, "Hay un error en borrar");
         }
