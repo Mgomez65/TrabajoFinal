@@ -7,6 +7,14 @@ export class UserRouter extends BaseRouter<UserController> {
 
   routes(): void {
     this.router.get("/", (req, res) => {
+      res.render("login");
+    });
+
+    this.router.get("/register", (req, res) => {
+      res.render("register");
+    });
+
+    this.router.get("/home", (req, res) => {
       res.render("index");
     });
 

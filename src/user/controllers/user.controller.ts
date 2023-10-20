@@ -22,8 +22,6 @@ export class UserController {
     }
   }
 
-
-
   async getUserById(req: Request, res: Response) {
     let { id } = req.query;
     id = id?.toString() || "";

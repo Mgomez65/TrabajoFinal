@@ -29,7 +29,6 @@ export class UserService extends BaseService<UserEntity> {
       .getMany();
 
     return user;
-
   }
 
   async createUser(body: UserDTO): Promise<UserEntity> {
