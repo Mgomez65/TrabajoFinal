@@ -7,7 +7,7 @@ export class purchaseRouter extends BaseRouter<ProductController>{
         super(ProductController);
     }
 routes(): void {
-    this.router.get("/product",(req,res) => this.controller.getProduct);
+    this.router.get("/product",(req,res) => this.controller.getProduct(req,res));
     this.router.get("/product", (req, res) => this.controller.getProductById(req, res) );
     this.router.post("/createProduct",(req,res)=>this.controller.createProduct(req,res) );
     this.router.post("/updateProduct",(req,res ) => this.controller.updateProduct(req,res));
