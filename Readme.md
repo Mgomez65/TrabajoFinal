@@ -20,10 +20,12 @@ Dependencias necesarias:
 ```
 npm install class-validator cors dotenv express morgan mysql ejs typeorm typeorm-naming-strategies typescript
 ```
- npm install middleware 
- npm install passport-jwt 
- npm install passport-local
-
+npm install middleware 
+```
+npm install passport-jwt 
+```
+npm install passport-local
+```
 Dependencias de desarrollo necesarias:
 
 ```
