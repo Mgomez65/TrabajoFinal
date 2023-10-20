@@ -1,19 +1,20 @@
 import { IsNotEmpty } from "class-validator";
 import { BaseDTO } from "../../config/base.dto";
+import { ProductEntity } from "../../product/entities/product.entity";
 
-export class CategoryDTO {
-    @IsNotEmpty()
-    id: number;
+export class CategoryDTO extends BaseDTO {
+    //@IsNotEmpty()
+    //id!: number;
 
   
     @IsNotEmpty()
-    categoryName: string;
+    categoryName!: string;
   
     @IsNotEmpty()
-    description: string;
+    description!: string;
   
     @IsNotEmpty()
-    products: ProductEntity[];
+    products!: ProductEntity[];
   
     
   }

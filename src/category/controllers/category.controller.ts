@@ -10,12 +10,15 @@ export class categoryController{
   ) {}
 
     async getCategory(req:Request,res:Response){
-      try{
-        const: data
-        res.status;(200).json(data);
-
-      }catch(e){
-        console.error(e)
+      try {
+        const users = await this.categoryService.findAllCategory();
+        if (users.length === 0) {
+          return this.httpResponse.NotFound(res, "No existe el datos");
+        }
+        // this.httpResponse.Ok(res, users);
+        res.render("users", { users });
+      } catch (e) {
+        return this.httpResponse.Error(res, e);
       }
     }
     async getCategoryById(req: Request, res: Response) {
