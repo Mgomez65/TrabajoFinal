@@ -5,13 +5,13 @@ import { DeleteResult, UpdateResult } from "typeorm";
 
 export class purchaseProductController {
     constructor(
-        private readonly purchaseProductService: purchaseProductService = new purchaseProductService(),
+        private readonly PurchaseProductService: purchaseProductService = new purchaseProductService(),
         private readonly httpResponse: HttpResponse = new HttpResponse()
         ){}
     
     async getPurchasesProducts(req: Request,res:Response){
         try {
-            const users = await this.purchaseProductService.findAllPurchaseProduct();
+            const users = await this.PurchaseProductService.findAllPurchaseProduct();
             if (users.length === 0) {
                 return this.httpResponse.NotFound(res, "No existe el datos");
             }
@@ -26,7 +26,7 @@ export class purchaseProductController {
         let { id } = req.query;
         id = id?.toString() || "";
         try {
-            const data = await this.purchaseProductService.findPurchaseProductByid(id);
+            const data = await this.PurchaseProductService.findPurchaseProductByid(id);
             if (!data) {
                 return this.httpResponse.NotFound(res, "No existe datos");
             }
@@ -42,7 +42,7 @@ export class purchaseProductController {
 
     async createPurchaseProduct (req: Request, res: Response){
         try{
-            const data = await this.purchaseProductService.createPurchaseProduct(req.body);
+            const data = await this.PurchaseProductService.createPurchaseProduct(req.body);
             res.render("index");
         }catch(e){
             return this.httpResponse.Error(res,e);
@@ -53,7 +53,7 @@ export class purchaseProductController {
         const {id} = req.body;
         
         try{
-            const data: UpdateResult = await this.purchaseProductService.updatePurchaseProdcut(id,req.body);
+            const data: UpdateResult = await this.PurchaseProductService.updatePurchaseProdcut(id,req.body);
             if (!data.affected){
                 return this.httpResponse.NotFound(res,"Hay un error en actualizar Al actualizar")
             }
@@ -66,7 +66,7 @@ export class purchaseProductController {
     async deletepurchaseProduct (req: Request, res: Response){
         const { id } = req.body;
         try {
-            const data: DeleteResult = await this.purchaseProductService.deletePurchaseProdcut(id)
+            const data: DeleteResult = await this.PurchaseProductService.deletePurchaseProdcut(id)
             if (!data.affected){
                 return this.httpResponse.NotFound(res,"Hay un error en actualizar Al actializar")
             }

@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
-import { CustomerService } from "../services/customer.services";
-import { HttpResponse } from "../../../shared/response/http.response";
+import { HttpResponse } from "../../shared/response/http.response";
 import { DeleteResult, UpdateResult } from "typeorm";
+import { CustomerService } from "../services/customer.services";
 
 export class CustomerController {
     constructor(
-        private readonly CustomerService: CustomerService = new CustomerService(),
+        private readonly customerService: CustomerService = new CustomerService(),
         private readonly httpResponse: HttpResponse = new HttpResponse()
     ) {}
 
     async getCustomer(req: Request, res: Response) {
         try {
-            const data = await this.CustomerService.findAllCustomer();
+            const data = await this.customerService.findAllCustomer();
             if (data.length === 0) {
                 return this.httpResponse.NotFound(res, "No existe dato");
         }
@@ -26,7 +26,7 @@ export class CustomerController {
         let { id } = req.query;
         id = id?.toString() || "";
         try {
-            const data = await this.CustomerService.findCustomerById(id);
+            const data = await this.customerService.findCustomerById(id);
             if (!data) {
             return this.httpResponse.NotFound(res, "No existe dato");
             }
@@ -38,7 +38,7 @@ export class CustomerController {
 
     async createCustomer(req: Request, res: Response) {
         try {
-            const data = await this.CustomerService.createCustomer(req.body);
+            const data = await this.customerService.createCustomer(req.body);
             res.render("index");
         } catch (e) {
             console.error(e);
@@ -49,7 +49,7 @@ export class CustomerController {
     async updateCustomer(req: Request, res: Response) {
         const { id } = req.body;
         try {
-            const data: UpdateResult = await this.CustomerService.updateCustomer(
+            const data: UpdateResult = await this.customerService.updateCustomer(
             id,
             req.body);
             if (!data.affected) {
@@ -65,7 +65,7 @@ export class CustomerController {
     async deleteCustomer(req: Request, res: Response) {
         const { id } = req.body;
         try {
-        const data: DeleteResult = await this.CustomerService.deleteCustomer(id);
+        const data: DeleteResult = await this.customerService.deleteCustomer(id);
         if (!data.affected) {
             return this.httpResponse.NotFound(res, "Hay un error en borrar");
         }

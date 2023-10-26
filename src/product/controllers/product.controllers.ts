@@ -6,13 +6,13 @@ import { DeleteResult, UpdateResult } from "typeorm";
 
 export class ProductController {
     constructor(
-        private readonly productService: productService = new productService(),
+        private readonly ProductService: productService = new productService(),
         private readonly httpResponse: HttpResponse = new HttpResponse()
     ) {}
 
     async getProduct(req: Request, res: Response) {
         try {
-            const data = await this.productService.findAllProduct();
+            const data = await this.ProductService.findAllProduct();
             if (data.length === 0) {
                 return this.httpResponse.NotFound(res, "No existe dato");
         }
@@ -27,7 +27,7 @@ export class ProductController {
         let { id } = req.query;
         id = id?.toString() || "";
         try {
-            const data = await this.productService.findProductByid(id);
+            const data = await this.ProductService.findProductByid(id);
             if (!data) {
             return this.httpResponse.NotFound(res, "No existe dato");
             }
@@ -39,7 +39,7 @@ export class ProductController {
 
     async createProduct(req: Request, res: Response) {
         try {
-            const data = await this.productService.createProduct(req.body);
+            const data = await this.ProductService.createProduct(req.body);
             res.render("index");
         } catch (e) {
             console.error(e);
@@ -50,7 +50,7 @@ export class ProductController {
     async updateProduct(req: Request, res: Response) {
         const { id } = req.body;
         try {
-            const data: UpdateResult = await this.productService.updateProduct(
+            const data: UpdateResult = await this.ProductService.updateProduct(
             id,
             req.body);
             if (!data.affected) {
@@ -66,7 +66,7 @@ export class ProductController {
     async deleteProduct(req: Request, res: Response) {
         const { id } = req.body;
         try {
-        const data: DeleteResult = await this.productService.deleteProduct(id);
+        const data: DeleteResult = await this.ProductService.deleteProduct(id);
         if (!data.affected) {
             return this.httpResponse.NotFound(res, "Hay un error en borrar");
         }
