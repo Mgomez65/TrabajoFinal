@@ -71,3 +71,13 @@ button{
   height:1px;
   overflow:hidden;
 }
+
+img{
+  width: 50px;
+  height: 50px;
+}
+
+a.sin-subrayado {
+  text-decoration: none;
+  color: white; /* Puedes personalizar el color aquí */
+}

@@ -26,8 +26,6 @@ export class UserEntity extends BaseEntity {
   @Column()
   province!: string;
 
-  @Column({type:"enum", enum: RoleType, nullable: false})
-  role!: RoleType;
 
   @OneToOne(() => CustomerEntity, (customer) => customer.user)
   customer!: CustomerEntity;

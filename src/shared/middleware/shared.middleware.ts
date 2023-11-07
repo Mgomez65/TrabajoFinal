@@ -10,7 +10,7 @@ export class SharedMiddleware {
     return passport.authenticate(type, { session: false });
   }
 
-  checkCustomerRole(req: Request, res: Response, next: NextFunction) {
+  /*checkCustomerRole(req: Request, res: Response, next: NextFunction) {
     const user = req.user as UserEntity;
     if (user.role !== RoleType.CUSTOMER) {
       return this.httpResponse.Unauthorized(res, "No tienes permiso");
@@ -23,5 +23,5 @@ export class SharedMiddleware {
       return this.httpResponse.Unauthorized(res, "No tienes permiso");
     }
     return next();
-  }
+  }*/
 }

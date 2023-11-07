@@ -9,7 +9,8 @@ import { DataSource } from "typeorm";
 
 class ServerBootstrap extends ConfigServer {
   public app: express.Application = express();
-  private port: number = this.getNumberEnv("PORT");
+  //private port: number = this.getNumberEnv("PORT");
+  private port: number = 8000; // Cambia el puerto a 8080 u otro de tu elección
 
   constructor() {
     super();
@@ -54,5 +55,6 @@ class ServerBootstrap extends ConfigServer {
   
 }
 
+export default ServerBootstrap;
 
 new ServerBootstrap();

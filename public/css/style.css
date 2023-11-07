@@ -9,24 +9,24 @@ body {
 }
 
 .primary-btn {
-  background-color: #6cc24a;
+  background-color: #6495ed;
   color: #fff;
 }
 
 .primary-btn:hover {
   background-color: transparent;
-  border-color: #6cc24a;
-  color: #6cc24a;
+  border-color: #6495ed;
+  color: #6495ed;
 }
 
 .secondary-btn {
   background-color: transparent;
-  border-color: #6cc24a;
-  color: #6cc24a;
+  border-color: #6495ed;
+  color: #6495ed;
 }
 
 .secondary-btn:hover {
-  background-color: #6cc24a;
+  background-color: #6495ed;
   color: #fff;
 }
 
