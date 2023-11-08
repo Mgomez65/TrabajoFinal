@@ -14,7 +14,9 @@ export class UserRouter extends BaseRouter<UserController> {
       res.render("register");
     });
 
-    this.router.get("/users", (req, res) => this.controller.getUsers(req, res));
+    this.router.get("/users", (req, res) => 
+      this.controller.getUsers(req, res)
+    );
     
     this.router.get("/user", (req, res) =>
       this.controller.getUserById(req, res)
