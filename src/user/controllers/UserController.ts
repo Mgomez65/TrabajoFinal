@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Express, Request, Response } from "express";
 import { UserService } from "../services/user.service";
 import { HttpResponse } from "../../shared/response/http.response";
 import { DeleteResult, UpdateResult } from "typeorm";
@@ -7,7 +7,7 @@ export class UserController {
   constructor(
     private readonly userService: UserService = new UserService(),
     private readonly httpResponse: HttpResponse = new HttpResponse()
-  ) {}
+  ) { }
 
   async getUsers(req: Request, res: Response) {
     try {
@@ -44,7 +44,7 @@ export class UserController {
   async createUser(req: Request, res: Response) {
     try {
       const data = await this.userService.createUser(req.body);
-      console.log(data)
+      console.log(data);
       //return this.httpResponse.Ok(res, data);
       res.render("index", { user: data });
     } catch (e) {
@@ -102,5 +102,4 @@ export class UserController {
       return this.httpResponse.Error(res, e);
     }
   }
-
 }
