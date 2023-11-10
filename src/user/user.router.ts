@@ -37,7 +37,10 @@ export class UserRouter extends BaseRouter<UserController> {
     this.router.post("/deleteUser", (req, res) =>
       this.controller.deleteUser(req, res)
     );
+    this.router.post("/login", (req, res) =>
+    this.controller.login(req, res))
   }
+
 
 }
 
