@@ -44,8 +44,9 @@ export class UserController {
   async createUser(req: Request, res: Response) {
     try {
       const data = await this.userService.createUser(req.body);
-      // return this.httpResponse.Ok(res, data);
-      res.render("index");
+      console.log(data)
+      //return this.httpResponse.Ok(res, data);
+      res.render("index", { user: data });
     } catch (e) {
       return this.httpResponse.Error(res, e);
     }

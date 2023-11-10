@@ -18,7 +18,7 @@ En este curso aprenderas como generar una API REST compleja con NodeJS utilizand
 Dependencias necesarias:
 
 ```
-npm install class-validator cors dotenv express morgan mysql ejs typeorm typeorm-naming-strategies typescript
+npm install class-validator cors dotenv express morgan mysql ejs typeorm typeorm-naming-strategies typescript middleware  passport-jwt  passport-local
 ```
 npm install middleware 
 ```

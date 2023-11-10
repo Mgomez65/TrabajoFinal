@@ -32,7 +32,8 @@ export class UserService extends BaseService<UserEntity> {
   }
 
   async createUser(body: UserDTO): Promise<UserEntity> {
-    return (await this.execRepository).save(body);
+    const newUser = (await this.execRepository).create(body);
+    return (await this.execRepository).save(newUser);
   }
 
   async deleteUser(id: string): Promise<DeleteResult> {
