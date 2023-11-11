@@ -2,8 +2,6 @@ import { Express, Request, Response } from "express";
 import { UserService } from "../services/user.service";
 import { HttpResponse } from "../../shared/response/http.response";
 import { DeleteResult, UpdateResult } from "typeorm";
-import { getRepository } from "typeorm";
-import { UserEntity } from "../entities/user.entity";
 
 export class UserController {
   constructor(
@@ -104,16 +102,5 @@ export class UserController {
       return this.httpResponse.Error(res, e);
     }
   }
-<<<<<<< HEAD:src/user/controllers/UserController.ts
-=======
-  /*async login(req:Request, res:Response){
-    const data = req.body;
-    let email = data.email;
-    let password = data.password
-    console.log(data,email,password)
-    if (email == "mati@gmail.com"){
-      res.render("ll.ejs")}
-    }*/ 
->>>>>>> e57fb8f6722cd223449b90c5b22c62d8c63b78e0:src/user/controllers/user.controller.ts
 }
 
