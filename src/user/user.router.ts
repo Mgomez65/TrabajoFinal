@@ -40,5 +40,8 @@ export class UserRouter extends BaseRouter<UserController> {
     this.router.post("/deleteUser", (req, res) =>
       this.controller.deleteUser(req, res)
     )
+    this.router.post("/userGmail", (req, res) =>
+      this.controller.getUserBygmail(req, res)
+    );
   }
 }

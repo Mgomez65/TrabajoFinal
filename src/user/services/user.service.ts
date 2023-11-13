@@ -14,7 +14,10 @@ export class UserService extends BaseService<UserEntity> {
   async findUserById(id: string): Promise<UserEntity | null> {
     return (await this.execRepository).findOneBy({ id });  
   }
-
+  async findUserByEmail(email: string): Promise<UserEntity | null> {
+    return (await this.execRepository).findOneBy({ email });  
+  }
+  
   async search(search: string) {
     if (!search) {
       throw new Error("Por favor preencha o campo de busca");

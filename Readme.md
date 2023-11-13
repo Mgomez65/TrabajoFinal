@@ -24,7 +24,7 @@ npm install class-validator cors dotenv express morgan mysql ejs typeorm typeorm
 Dependencias de desarrollo necesarias:
 
 ```
-npm install -D @types/cors @types/express @types/morgan concurrently nodemon
+npm install -D @types/cors @types/express @types/morgan concurrently nodemon @types/passport
 ```
 npm install -D @types/passport
 
