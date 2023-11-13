@@ -41,6 +41,20 @@ export class UserController {
     }
   }
 
+  async getUserBygmail (req:Request,res:Response){
+    
+    const data  = req.body
+    let {email } = data; 
+    email = email?.toString() || ""; 
+    const usuario = await this.userService.findUserByEmail(email);
+    console.log(data,usuario)
+    if (data.email == usuario?.email && data.password == usuario?.password){
+      res.render("./index")
+    }else{
+      return this.httpResponse.NotFound(res, "No existe datos");
+    }
+    
+  }
   async createUser(req: Request, res: Response) {
     try {
       const data = await this.userService.createUser(req.body);
