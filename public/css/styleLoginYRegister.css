@@ -8,8 +8,8 @@ body{
   font-size: larger;
 
   --s: 34px; /* control the size (the circle diameter) */
-  --c1: #ECBE13;
-  --c2: #146b3a;
+  --c1: #fff;
+  --c2: #159f3a;
   
   --_g: radial-gradient(calc(var(--s)/2),var(--c1) 97%,#0000);
   background:
