@@ -44,15 +44,12 @@ export class UserController {
   async getUserBygmail (req:Request,res:Response){
     
     const data  = req.body
-    let {email } = data; // Cambiar "id" por "email" para buscar por correo electrónico
-    email = email?.toString() || ""; // Asegurarse de que "email" sea una cadena
-  
-    let Gmail = data.email
-    let password = data.password
+    let {email } = data; 
+    email = email?.toString() || ""; 
     const usuario = await this.userService.findUserByEmail(email);
     console.log(data,usuario)
     if (data.email == usuario?.email && data.password == usuario?.password){
-      res.render("ll.ejs")
+      res.render("./index")
     }else{
       return this.httpResponse.NotFound(res, "No existe datos");
     }
