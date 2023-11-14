@@ -51,7 +51,7 @@ export class UserController {
     if (data.email == usuario?.email && data.password == usuario?.password){
       res.render("./index")
     }else{
-      return this.httpResponse.NotFound(res, "No existe datos");
+      res.render("./error");
     }
     
   }
