@@ -1,0 +1,73 @@
+body{
+  margin: 0;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  background-color: #159f3a;
+  align-items: center;
+  padding: 10px;
+}
+a{
+  text-decoration: none;
+  color: white  
+}
+
+.logo{
+  display: flex;  
+  align-items: center;
+}
+
+.logo img{
+  height: 50px;
+  background-color: white;
+  border-radius: 15%;
+}
+
+nav a{
+  padding-right: 10px;
+}
+
+nav a:hover{
+  color: black;
+}
+.contenido{
+  background-image: url(/img/Fondo.png);
+  background-repeat: no-repeat;
+  background-size:cover ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+
+}
+h1{
+  
+  font-size: 100px;
+  margin-bottom: 0% ;
+  
+}
+h2{
+  font-size: 50px;
+}
+.pie-pagina{
+  background-color: #159f3a;
+  margin: 0%;
+  display: flex;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  background-color: #159f3a;
+  align-items: center;
+  padding: 10px;
+  
+}
+.pie-pagina img{
+  height: 100px;
+  background-color: black;
+  border-radius: 50%;
+}
