@@ -1,5 +1,3 @@
 node_modules
 dist
 src/migrations
-package-lock.json
-package.json
