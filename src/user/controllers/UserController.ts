@@ -48,9 +48,11 @@ export class UserController {
     email = email?.toString() || ""; 
     const usuario = await this.userService.findUserByEmail(email);
     console.log(data,usuario)
-    if (data.email == usuario?.email && data.password == usuario?.password){
+    if (data.email == usuario?.email && data.password == usuario?.password && usuario?.role == "ADMIN"){
       res.render("./index")
-    }else{
+    }else if ((data.email == usuario?.email && data.password == usuario?.password && usuario?.role == ""))
+      res.render("./indexCliente")
+    else{
       res.render("./error");
     }
     
@@ -96,7 +98,7 @@ export class UserController {
       if (!data.affected) {
         return this.httpResponse.NotFound(res, "Error al actualizar");
       }
-      return this.httpResponse.Ok(res, data);
+      res.render("./index")
     } catch (e) {
       return this.httpResponse.Error(res, e);
     }
