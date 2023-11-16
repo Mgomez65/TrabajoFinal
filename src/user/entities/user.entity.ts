@@ -25,6 +25,7 @@ export class UserEntity extends BaseEntity {
 
   @Column()
   province!: string;
+  
   @Column()
   role!: string;
 

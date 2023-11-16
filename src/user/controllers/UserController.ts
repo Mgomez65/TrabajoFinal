@@ -26,7 +26,7 @@ export class UserController {
   async getUserById(req: Request, res: Response) {
     let { id } = req.query;
     id = id?.toString() || "";
-
+    
     try {
       const data = await this.userService.findUserById(id);
       if (!data) {
@@ -99,9 +99,9 @@ export class UserController {
   }
 
   async updateUser(req: Request, res: Response) {
-    // const { id } = req.params;
+     //const { id } = req.params;
     const { id } = req.body;
-
+    console.log(id)
     try {
       const data: UpdateResult = await this.userService.updateUser(
         id,
@@ -111,7 +111,7 @@ export class UserController {
         return this.httpResponse.NotFound(res, "Error al actualizar");
       }
       res.render("./index")
-    } catch (e) {
+    }catch (e) {
       return this.httpResponse.Error(res, e);
     }
   }
@@ -134,11 +134,11 @@ export class UserController {
   
     let email = this.emailUsurio?.toString() || ""; 
     try {
-      const users = await this.userService.findUserByEmail(email);
-      console.log( users , this.emailUsurio)
+      const data = await this.userService.findUserByEmail(email);
+      console.log( data , this.emailUsurio)
       
       // this.httpResponse.Ok(res, users);
-      res.render("perfilUsuario", { users  });
+      res.render("perfilUsuario", { data   });
     } catch (e) {
       return this.httpResponse.Error(res, e);
     }
