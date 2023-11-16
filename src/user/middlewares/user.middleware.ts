@@ -21,6 +21,7 @@ export class UserMiddleware extends SharedMiddleware {
     valid.password = password;
     valid.city = city;
     valid.province = province;
+    valid.role = role;
 
     validate(valid).then((err) => {
       if (err.length > 0) {

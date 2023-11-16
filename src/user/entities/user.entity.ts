@@ -25,6 +25,8 @@ export class UserEntity extends BaseEntity {
 
   @Column()
   province!: string;
+  @Column()
+  role!: string;
 
 
   @OneToOne(() => CustomerEntity, (customer) => customer.user)
