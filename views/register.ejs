@@ -19,26 +19,59 @@
           <p>Creá tu cuenta para ingresar.</p>
           <form  id="register-form" action="./registrase" method="post">
 
-            <label for="name " class="sr-only">name </label>
-            <input type="text" name="name" id="name" placeholder="Nombre">
+            <div > 
+              <label for="name " class="sr-only">name </label>
+              <input type="text" name="name" id="name" placeholder="Nombre">
+            </div>
 
-            <label for="lastname" class="sr-only">Lastname</label>
+            <div class="borde">
+              <label for="lastname" class="sr-only">Lastname</label>
             <input type="text" name="lastname" id="lastname" placeholder="Apellido">
+            </div>
 
-            <label for="username" class="sr-only">Username</label>
+            <div class="borde">
+              <label for="username" class="sr-only">Username</label>
             <input type="text" name="username" id="username" placeholder="nombre de Usuario ">
+            </div>
 
-            <label for="email" class="sr-only">Email</label>
+            <div class="borde">
+              <label for="email" class="sr-only">Email</label>
             <input type="email" name="email" id="email" placeholder="Correo electrónico">
+            </div>
 
-            <label for="password" class="sr-only">Password</label>
+            <div class="borde"> <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" placeholder="Contraseña">
+            </div>
 
-            <label for="city" class="sr-only">City</label>
+            <div class="borde"><label for="city" class="sr-only">City</label>
             <input type="text" name="city" id="city" placeholder="Ciudad">
+            </div>
+            
+            <div class="borde"> 
+              <label for="pronvice" class="sr-only" >Seleccione la Provincia</label>
+              <select type="text" name="province" id="province" width:10px; height:100px; >
+              <option value="Buenos Aires">Buenos Aires</option>
+              <option value="Catamarca">Catamarca</option>
+              <option value="Chaco">Chaco</option>
+              <option value="Chubut">Chubut</option>
+              <option value="Córdoba">Córdoba</option>
+              <option value="Corrientes">Corrientes</option>
+              <option value="Entre Ríos">Entre Ríos </option>
+              <option value="Formosa">Formosa </option>
+              <option value="Jujuy">Jujuy</option>
+              <option value="La Pampa">La Pampa</option>
+              <option value="La Rioja">La Rioja </option>
+              <option value="Mendoza">Mendoza </option>
+              <option value="Misiones">Misiones</option>
+              <option value="Neuquén">Neuquén</option>
+              <option value="Río Negro">Río Negro</option>
+              <option value="Salta">Salta</option>
+              <option value="San Juan">San Juan</option>
+              <option value="San Luis">San Luis</option>
+              <option value="Santa Cruz">Santa Cruz </option>
+              </select></div>
 
-            <label for="province" class="sr-only">Province</label>
-            <input type="text" name="province" id="province" placeholder="Provincia">
+    </div>
 
             <button type="submit"><a >Crear usuario</a></button>
           
