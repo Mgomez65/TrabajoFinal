@@ -58,6 +58,12 @@
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(mapa);
+    var markerCoords = [-32.961891, -68.75541];
+    var marker = L.marker(markerCoords).addTo(mapa)
+    .bindPopup("<b>Horario de recolecion </b><br>  para de luenes a viernes  alas 9AM .");
+
+// Abrir el pop-up al cargar el mapa
+marker.openPopup();
     </script>
 </body>
 </html>

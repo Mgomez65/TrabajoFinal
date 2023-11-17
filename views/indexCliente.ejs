@@ -37,7 +37,7 @@
             <a class="nav-link active" aria-current="page" href="./usersCliente">Usuarios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="editcliente.ejs">editar Informacion</a>
+            <a class="nav-link active" aria-current="page" href="edi">editar Informacion</a>
           </li>
         </ul>
         <form class="d-flex" action="./search" method="GET">
@@ -58,6 +58,12 @@
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(mapa);
+    var markerCoords = [-32.961891, -68.75541];
+    var marker = L.marker(markerCoords).addTo(mapa)
+    .bindPopup("<b>Horario de recolecion </b><br>  para de luenes a viernes  alas 9AM .");
+
+// Abrir el pop-up al cargar el mapa
+marker.openPopup();
     </script>
 </body>
 </html>
