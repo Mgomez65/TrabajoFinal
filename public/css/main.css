@@ -5,13 +5,13 @@ header{
   display: flex;
   justify-content: space-between;
   height: 70px;
-  background-color: #159f3a;
+  background-color: #ffffff;
   align-items: center;
   padding: 10px;
 }
 a{
   text-decoration: none;
-  color: white  
+  color: rgb(0, 0, 0)  
 }
 
 .logo{
