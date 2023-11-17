@@ -72,16 +72,16 @@
         <div class="row">
           <div class="col-6">
             <label for="role" class="form-label">Rol</label>
-            <input type="text" name="role" id="role" class="form-control" value="<%= user.role %>">
+           <select name="role" id="role" class="form-select">
+            <option value="" selected disabled>Seleccione su rol</option>
+            <option value="USER">USER</option>
+            <option value="CUSTOMER">CUSTOMER</option>
+            <option value="ADMIN">ADMIN</option>
+        
+           
+          </select>
           </div>
-          
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-6">
-            <label for="city" class="form-label">Ciudad</label>
-            <input type="text" name="city" id="city" class="form-control" value="<%= user.city %>">
-          </div>
+
           <div class="col-6">
             <label for="pronvice" class="form-label">Provincia</label>
             <select name="province" id="province" class="form-select">
@@ -109,6 +109,14 @@
             <option value="San Luis">San Luis</option>
             <option value="Santa Cruz">Santa Cruz </option>
             </select>
+          </div>
+          
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <label for="city" class="form-label">Ciudad</label>
+            <input type="text" name="city" id="city" class="form-control" value="<%= user.city %>">
           </div>
         </div>
         <br>

@@ -20,7 +20,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand"><img src="img/icon.png" alt="Node.js icon" class="nav-icon" width=50px;></a>
+                <a class="navbar-brand"><img src="img/logo.png" alt="Node.js icon" class="nav-icon" width=50px;></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -52,6 +52,11 @@
                     <div>  <p><strong>Nombre de Usuario </strong> <%= data.username %>   </p> </div>
                     <div>  <p><strong>Cuidad</strong> <%= data.city %>   </p> </div>
                     <div>  <p><strong>Province</strong> <%= data.province %>   </p> </div>
+
+                    <form action="./user" method="GET">
+                        <input type="hidden" name="id" value="<%= data.id %>">
+                        <button type="submit" class="btn edit-btn"><i class="bi bi-pencil"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

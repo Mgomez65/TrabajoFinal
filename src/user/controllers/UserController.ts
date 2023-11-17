@@ -9,6 +9,8 @@ export class UserController {
     private readonly httpResponse: HttpResponse = new HttpResponse()
   ) { }
   private emailUsurio:string = "";
+    
+
   async getUsers(req: Request, res: Response) {
     try {
       const users = await this.userService.findAllUser();
@@ -26,16 +28,21 @@ export class UserController {
   async getUserById(req: Request, res: Response) {
     let { id } = req.query;
     id = id?.toString() || "";
+    let email = this.emailUsurio?.toString() || ""; 
     
     try {
+      const datausuario = await this.userService.findUserByEmail(email);
       const data = await this.userService.findUserById(id);
       if (!data) {
         return this.httpResponse.NotFound(res, "No existe datos");
       }
-      // return this.httpResponse.Ok(res, data);
-      return res.render("edit", {
+      if (datausuario?.role == ""){
+        return res.render("editCliente",{user:datausuario})
+      }else{
+        return res.render("edit", {
         user: data,
       });
+      }
     } catch (e) {
       console.error(e);
       return this.httpResponse.Error(res, e);
@@ -57,8 +64,9 @@ export class UserController {
     else{
       res.render("./error");
     }
-    
   }
+
+
 
   async createUser(req: Request, res: Response) {
     try {
@@ -71,6 +79,8 @@ export class UserController {
     }
   }
 
+
+
   async register(req: Request, res: Response) {
     try {
       const data = await this.userService.createUser(req.body);
@@ -81,6 +91,8 @@ export class UserController {
       return this.httpResponse.Error(res, e);
     }
   }
+
+
 
   async search(req: Request, res: Response) {
     let { search } = req.query;
@@ -98,11 +110,16 @@ export class UserController {
     }
   }
 
+
+
   async updateUser(req: Request, res: Response) {
-     //const { id } = req.params;
+
     const { id } = req.body;
     console.log(id)
+    let email = this.emailUsurio?.toString() || ""; 
+
     try {
+      const datausuario = await this.userService.findUserByEmail(email);
       const data: UpdateResult = await this.userService.updateUser(
         id,
         req.body
@@ -110,11 +127,16 @@ export class UserController {
       if (!data.affected) {
         return this.httpResponse.NotFound(res, "Error al actualizar");
       }
-      res.render("./index")
+      if (datausuario?.role == ""){
+        res.render ("indexCliente")
+      }else{
+      res.render("./index")}
     }catch (e) {
       return this.httpResponse.Error(res, e);
     }
   }
+
+
 
   async deleteUser(req: Request, res: Response) {
     // const { id } = req.params;
@@ -130,8 +152,10 @@ export class UserController {
       return this.httpResponse.Error(res, e);
     }
   }
-  async getCliente(req: Request, res: Response){
+
+
   
+  async getCliente(req: Request, res: Response){
     let email = this.emailUsurio?.toString() || ""; 
     try {
       const data = await this.userService.findUserByEmail(email);
